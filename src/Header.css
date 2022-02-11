@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.header__left > img {
+  /* contain - The image keeps its aspect ratio, but is resized to fit within the given dimension */
+  object-fit: contain;
+  height: 80px;
+}
+
+.header__middle {
+  display: flex;
+  align-items: center;
+  flex: 0.7;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.header__middle > .MuiSvgIcon-root {
+  color: gray;
+}
+
+.header__middle > input {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 10px; /* spreads the input box in all sides */
+  font-size: medium;
+  outline: none; /* removes black lines around when selecting the input field */
+}
+
+.header__right {
+  display: flex;
+  padding-right: 20px;
+}
