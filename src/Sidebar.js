@@ -33,7 +33,7 @@ function Sidebar() {
       <SidebarOption Icon={StarIcon} title="Starred" number={3} />
       <SidebarOption Icon={QueryBuilderIcon} title="Snoozed" number={1} />
       <SidebarOption Icon={NearMeIcon} title="Sent" number={12} />
-      <SidebarOption Icon={NoteIcon} title="Inbox" number={0} />
+      <SidebarOption Icon={NoteIcon} title="Drafts" number={0} />
       <SidebarOption Icon={ExpandMoreIcon} title="More" number="" />
 
       <div className="sidebar__footer">
