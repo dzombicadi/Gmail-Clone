@@ -30,6 +30,7 @@ function Sidebar() {
         number={54}
         selected={true}
       />
+
       <SidebarOption Icon={StarIcon} title="Starred" number={3} />
       <SidebarOption Icon={QueryBuilderIcon} title="Snoozed" number={1} />
       <SidebarOption Icon={NearMeIcon} title="Sent" number={12} />
