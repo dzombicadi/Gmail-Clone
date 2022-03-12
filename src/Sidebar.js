@@ -12,14 +12,21 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PersonIcon from "@mui/icons-material/Person";
 import DuoIcon from "@mui/icons-material/Duo";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { useDispatch } from "react-redux";
+import { openSendMessage } from "./features/mailSlice";
 
 function Sidebar() {
+  /* This hook returns a reference to the dispatch function from the Redux store. You can use this to make dispatch actions in the redux. Used similar in SendMai.js */
+  const dispatch = useDispatch();
+
   return (
     <div className="sidebar">
       {/* adding plus icon before text */}
       <Button
         className="sidebar__compose"
         startIcon={<AddIcon fontSize="large" />}
+        /* this will trigger openSendMessage const which will set "sendMessageIsOpen" to true in mailSlice.js */
+        onClick={() => dispatch(openSendMessage())}
       >
         Compose
       </Button>

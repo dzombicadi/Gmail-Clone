@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./SidebarOption.css";
 
 function SidebarOption({ Icon, title, number, selected }) {
