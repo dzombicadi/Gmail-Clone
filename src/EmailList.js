@@ -1,5 +1,5 @@
 import { Checkbox, IconButton } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./EmailList.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import RedoIcon from "@mui/icons-material/Redo";
@@ -13,8 +13,30 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import PeopleIcon from "@mui/icons-material/People";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import EmailRow from "./EmailRow";
+import { db } from "./firebase";
 
 function EmailList() {
+  const [emails, setEmails] = useState([]);
+
+  // this will run this piece of code once when EmailList gets loaded
+  useEffect(() => {
+    // snapshot = reloads entire email list every time sonething changes (e.g. you get new mail...)
+    // orderBy = will order it by timestamp descending
+    // snapshot.docs.map = go through(map it) all mails in firebase database and take id and data(to, subject, message)
+
+    db.collection("emails")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setEmails(
+          // this will store id and data in emails(useState) const above
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      );
+  }, []);
+
   return (
     <div className="emailList">
       <div className="emailList__settings">
@@ -53,6 +75,21 @@ function EmailList() {
       </div>
 
       <div className="emailList__list">
+        {/* for every single mail you get from line 27 function, take every single one and show it with code below */}
+        {/* take ID & from emails(setEmails) array, take `to, subject, message, timestamp` */}
+        {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <EmailRow
+            id={id}
+            key={id} // when we push another element(new mail) it doesn't need to render entire list, than it will just add +1
+            title={to}
+            subject={subject}
+            description={message}
+            // when firebase passes the timestamp it comes in undefined format which can break entire code... this code will transfer it into 'working' one
+            // question mark is used if something breaks up, if time is undefined it won't render it and will just skip this line of code
+            time={new Date(timestamp?.seconds * 1000).toUTCString()}
+          />
+        ))}
+
         <EmailRow
           title="Twitch"
           subject="Hello what's up!!"
