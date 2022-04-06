@@ -15,12 +15,14 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import EmailRow from "./EmailRow";
 import { db } from "./firebase";
 
+export const FlashContext = React.createContext();
+
 function EmailList() {
   const [emails, setEmails] = useState([]);
 
   // this will run this piece of code once when EmailList gets loaded
   useEffect(() => {
-    // snapshot = reloads entire email list every time sonething changes (e.g. you get new mail...)
+    // snapshot = reloads entire email list every time something changes (e.g. you get new mail...)
     // orderBy = will order it by timestamp descending
     // snapshot.docs.map = go through(map it) all mails in firebase database and take id and data(to, subject, message)
 
@@ -90,6 +92,114 @@ function EmailList() {
           />
         ))}
 
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hello what's up!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Amazon"
+          subject="Package Arrived"
+          description="Your package arrived and you can take it infront of your door"
+          time="11pm"
+        />
         <EmailRow
           title="Twitch"
           subject="Hello what's up!!"
