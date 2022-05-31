@@ -2,9 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchCount } from "./counter/counterAPI";
 
 const initialState = {
-  sendMessageIsOpen: false,
-  selectedMail: null,
-  status: "idle",
+  user: null,
 };
 
 export const incrementAsync = createAsyncThunk(
@@ -16,18 +14,15 @@ export const incrementAsync = createAsyncThunk(
   }
 );
 
-export const mailSlice = createSlice({
-  name: "mail",
+export const userSlice = createSlice({
+  name: "user",
   initialState,
   reducers: {
-    selectMail: (state, action) => {
-      state.selectedMail = action.payload;
+    login: (state, action) => {
+      state.user = action.payload;
     },
-    openSendMessage: (state) => {
-      state.sendMessageIsOpen = true;
-    },
-    closeSendMessage: (state) => {
-      state.sendMessageIsOpen = false;
+    logout: (state) => {
+      state.user = null;
     },
   },
 });
@@ -45,12 +40,9 @@ extraReducers: (builder) => {
   },
 */
 
-export const { selectMail, openSendMessage, closeSendMessage } =
-  mailSlice.actions;
+export const { login, logout } = userSlice.actions;
 
-export const selectOpenMail = (state) => state.mail.selectedMail;
-
-export const selectSendMessageIsOpen = (state) => state.mail.sendMessageIsOpen;
+export const selectUser = (state) => state.user.user;
 
 /*
 export const incrementIfOdd = (amount) => (dispatch, getState) => {
@@ -61,4 +53,4 @@ export const incrementIfOdd = (amount) => (dispatch, getState) => {
 };
 */
 
-export default mailSlice.reducer;
+export default userSlice.reducer;
